@@ -184,7 +184,7 @@ var isMemberIdEusko = (values, value) => {
 }
 
 var isBdcIdEusko = (values, value) => {
-    return value && value.match(/^B\d\d\d$/)
+    return value && value.match(/^B\d{4,}$/)
 }
 
 var isPositiveNumeric = (values, value) => {

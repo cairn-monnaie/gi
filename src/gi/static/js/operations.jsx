@@ -33,10 +33,10 @@ var Operations = React.createClass({
                 <div className="panel-body">
                     <div className="row">
                         <div className="col-md-6">
-                            <a href="/operations/entrees-euro" className="btn btn-default">{__("Entrées dans la Caisse € d'E.M.")}</a>
+                            <a href="/operations/entrees-euro" className="btn btn-default">{__("Entrées dans la Caisse € de l'Asso.")}</a>
                         </div>
                         <div className="col-md-6">
-                            <a href="/operations/entrees-eusko" className="btn btn-default">{__("Entrées dans la Caisse Eusko d'E.M.")}</a>
+                            <a href="/operations/entrees-eusko" className="btn btn-default">{__("Entrées dans la Caisse Eusko de l'Asso.")}</a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ var Operations = React.createClass({
                     </div>
                 </div>
             </div>
-            <div className="panel panel-info">
+            {/*            <div className="panel panel-info">
                 <div className="panel-heading">
                     <h3 className="panel-title">{__("Dons 3% aux associations")}</h3>
                 </div>
@@ -82,7 +82,7 @@ var Operations = React.createClass({
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/}
             <div className="panel panel-info">
                 <div className="panel-heading">
                     <h3 className="panel-title">{__("Comptabilité")}</h3>
