@@ -77,7 +77,7 @@ var CashDepositPage = React.createClass({
         var computePorteurListData = (porteurList) => {
             this.setState({porteurList: _.sortBy(porteurList, function(item){ return item.label })})
         }
-        fetchAuth(getAPIBaseURL + "porteurs-eusko/", 'get', computePorteurListData)
+        fetchAuth(getAPIBaseURL + "porteurs-mlc/", 'get', computePorteurListData)
     },
 
     onSelectTableRow(row, isSelected, event) {
@@ -149,7 +149,7 @@ var CashDepositPage = React.createClass({
         postData.selected_payments = this.state.historyTableSelectedRows
         postData.mode = this.props.mode
 
-        if (this.props.mode == "sortie-retour-eusko" || this.props.mode == "sortie-caisse-eusko")
+        if (this.props.mode == "sortie-retour-mlc" || this.props.mode == "sortie-caisse-mlc")
             postData.porteur = this.state.porteur.value
 
         var computeForm = (data) => {
@@ -222,7 +222,7 @@ var CashDepositPage = React.createClass({
         else
             var dataTable = null;
 
-        if (this.props.mode == "sortie-retour-eusko" || this.props.mode == "sortie-caisse-eusko")
+        if (this.props.mode == "sortie-retour-mlc" || this.props.mode == "sortie-caisse-mlc")
         {
             var divPorteur = (
                 <div className="form-group row">
@@ -233,7 +233,7 @@ var CashDepositPage = React.createClass({
                         {__("Porteur")}
                         <span className="required-symbol">&nbsp;*</span>
                     </label>
-                    <div className="col-sm-8" data-eusko="cash-deposit-porteur">
+                    <div className="col-sm-8" data-mlc="cash-deposit-porteur">
                         <SimpleSelect
                             ref="select"
                             value={this.state.porteur}
@@ -269,7 +269,7 @@ var CashDepositPage = React.createClass({
                                     htmlFor="cash-deposit-deposit_amount">
                                     {__("Montant calculé")}
                                 </label>
-                                <div className="col-sm-8 cash-deposit cash-deposit-amount-div" data-eusko="cash-deposit-deposit_cash">
+                                <div className="col-sm-8 cash-deposit cash-deposit-amount-div" data-mlc="cash-deposit-deposit_cash">
                                     <span className="deposit-amount-span">
                                         {this.state.depositCalculatedAmount + " " + this.props.currency}
                                     </span>
@@ -281,7 +281,7 @@ var CashDepositPage = React.createClass({
                             <Row layout="horizontal">
                                 <input
                                     name="submit"
-                                    data-eusko="cash-deposit-submit"
+                                    data-mlc="cash-deposit-submit"
                                     type="submit"
                                     defaultValue={__("Enregistrer")}
                                     className="btn btn-success"
@@ -315,35 +315,35 @@ if (window.location.pathname.toLowerCase().indexOf("cash-deposit") != -1)
     var propMode = "cash-deposit"
     var propGetHistoryURL = "accounts-history/?login_bdc=" + loginBDC +
         "&account_type=caisse_euro_bdc" +
-        "&filter=a_remettre_a_euskal_moneta"
+        "&filter=a_remettre_a_l_assocation"
     var propNextURL = "/bdc/manage/" + loginBDC + "/history/caisse-euro"
     var propTranslateTitle = __("Remise d'espèces")
     var propCurrency = '€'
 }
-else if (window.location.pathname.toLowerCase().indexOf("sortie-caisse-eusko") != -1)
+else if (window.location.pathname.toLowerCase().indexOf("sortie-caisse-mlc") != -1)
 {
     var loginBDC = window.location.pathname.slice(window.location.pathname.lastIndexOf('bdc/manage/') + 11,
-                                                  window.location.pathname.lastIndexOf('/sortie-caisse-eusko'))
-    // URL = sortie-caisse-eusko
-    var propMode = "sortie-caisse-eusko"
+                                                  window.location.pathname.lastIndexOf('/sortie-caisse-mlc'))
+    // URL = sortie-caisse-mlc
+    var propMode = "sortie-caisse-mlc"
     var propGetHistoryURL =  "accounts-history/?login_bdc=" + loginBDC +
-        "&account_type=caisse_eusko_bdc" +
-        "&filter=a_remettre_a_euskal_moneta"
-    var propNextURL = "/bdc/manage/" + loginBDC + "/history/caisse-eusko"
-    var propTranslateTitle = __("Sortie caisse eusko")
+        "&account_type=caisse_mlc_bdc" +
+        "&filter=a_remettre_a_l_assocation"
+    var propNextURL = "/bdc/manage/" + loginBDC + "/history/caisse-mlc"
+    var propTranslateTitle = __("Sortie caisse mlc")
     var propCurrency = 'EUS'
 }
-else if (window.location.pathname.toLowerCase().indexOf("sortie-retour-eusko") != -1)
+else if (window.location.pathname.toLowerCase().indexOf("sortie-retour-mlc") != -1)
 {
     var loginBDC = window.location.pathname.slice(window.location.pathname.lastIndexOf('bdc/manage/') + 11,
-                                                  window.location.pathname.lastIndexOf('/sortie-retour-eusko'))
-    // URL = sortie-retour-eusko
-    var propMode = "sortie-retour-eusko"
+                                                  window.location.pathname.lastIndexOf('/sortie-retour-mlc'))
+    // URL = sortie-retour-mlc
+    var propMode = "sortie-retour-mlc"
     var propGetHistoryURL =  "accounts-history/?login_bdc=" + loginBDC +
-        "&account_type=retours_d_eusko_bdc" +
-        "&filter=a_remettre_a_euskal_moneta"
-    var propNextURL = "/bdc/manage/" + loginBDC + "/history/retour-eusko"
-    var propTranslateTitle = __("Sortie retours d'eusko")
+        "&account_type=retours_d_mlc_bdc" +
+        "&filter=a_remettre_a_l_assocation"
+    var propNextURL = "/bdc/manage/" + loginBDC + "/history/retour-mlc"
+    var propTranslateTitle = __("Sortie retours d'mlc")
     var propCurrency = 'EUS'
 }
 else

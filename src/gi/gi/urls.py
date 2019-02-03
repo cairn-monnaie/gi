@@ -58,8 +58,8 @@ urlpatterns = [
 
     url(r'^bdc/manage/(?P<bdc_id>[\w\-]+)/bank-deposit/?$', bdc_views.bank_deposit, name='bank-deposit'),
     url(r'^bdc/manage/(?P<bdc_id>[\w\-]+)/cash-deposit/?$', bdc_views.cash_deposit, name='cash-deposit'),
-    url(r'^bdc/manage/(?P<bdc_id>[\w\-]+)/sortie-caisse-eusko/?$', bdc_views.cash_deposit, name='sortie-caisse-eusko'),
-    url(r'^bdc/manage/(?P<bdc_id>[\w\-]+)/sortie-retour-eusko/?$', bdc_views.cash_deposit, name='sortie-retour-eusko'),
+    url(r'^bdc/manage/(?P<bdc_id>[\w\-]+)/sortie-caisse-mlc/?$', bdc_views.cash_deposit, name='sortie-caisse-mlc'),
+    url(r'^bdc/manage/(?P<bdc_id>[\w\-]+)/sortie-retour-mlc/?$', bdc_views.cash_deposit, name='sortie-retour-mlc'),
 
     # comptesenbanque
     url(r'^comptes/?$', comptes_views.index, name='comptes-home'),
@@ -75,7 +75,7 @@ urlpatterns = [
     # operations
     url(r'^operations/?$', operations_views.index, name='operations-home'),
     url(r'^operations/entrees-euro/?$', base_views.generic_history_validation, name='operations-entrees-euro'),
-    url(r'^operations/entrees-eusko/?$', base_views.generic_history_validation, name='operations-entrees-eusko'),
+    url(r'^operations/entrees-mlc/?$', base_views.generic_history_validation, name='operations-entrees-mlc'),
     url(r'^operations/reconversions/?$', base_views.generic_history_validation, name='operations-reconversions'),
     url(r'^operations/depots-retraits/?$', base_views.generic_history_validation, name='operations-depots-retraits'),
     url(r'^operations/changes-prelevement/?$', operations_views.changes_prelevement, name='operations-changes-prelevement'),

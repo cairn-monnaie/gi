@@ -91,7 +91,7 @@ class ExportVersOdooPage extends React.Component {
                 <Formsy.Form onValidSubmit={this.submitForm}>
                     <div className="col-md-10">
                         <label className="control-label">{__("Période :")}</label>
-                        <div data-eusko="export-vers-odoo-start-date">
+                        <div data-mlc="export-vers-odoo-start-date">
                             <DatePicker
                                 className="form-control"
                                 selected={this.state.startDate}
@@ -99,7 +99,7 @@ class ExportVersOdooPage extends React.Component {
                                 locale="fr"
                             />
                         </div>
-                        <div data-eusko="export-vers-odoo-end-date">
+                        <div data-mlc="export-vers-odoo-end-date">
                             <DatePicker
                                 className="form-control"
                                 selected={this.state.endDate}
@@ -111,7 +111,7 @@ class ExportVersOdooPage extends React.Component {
                     <div className="col-md-10">
                                 <input
                                     name="submit"
-                                    data-eusko="export-vers-odoo-submit"
+                                    data-mlc="export-vers-odoo-submit"
                                     type="submit"
                                     defaultValue={__("Valider")}
                                     className="btn btn-success"

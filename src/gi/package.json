@@ -1,7 +1,7 @@
 {
   "name": "gestioninterne",
   "version": "1.0.0",
-  "description": "Front Eusko - Gestion interne",
+  "description": "Front Mlc - Gestion interne",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --progress --colors",

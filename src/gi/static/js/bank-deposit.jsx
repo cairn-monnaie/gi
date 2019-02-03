@@ -82,9 +82,9 @@ var BankDepositPage = React.createClass({
         var computePaymentModes = (paymentModes) => {
             // 'Euro-LIQ'
             // 'Euro-CHQ'
-            // 'Eusko-LIQ' <- We don't want the eusko payment mode in this page.
+            // 'Mlc-LIQ' <- We don't want the mlc payment mode in this page.
             this.setState({paymentModeList: _.chain(paymentModes)
-                           .filter((item) => { return item.value.toLowerCase().indexOf("eusko") === -1 })
+                           .filter((item) => { return item.value.toLowerCase().indexOf("mlc") === -1 })
                            .sortBy((item) => { return item.label })
                            .value()
                            })
@@ -105,7 +105,7 @@ var BankDepositPage = React.createClass({
         fetchAuth(getAPIBaseURL +
                   "accounts-history/?login_bdc=" + this.state.bdcID +
                   "&account_type=caisse_euro_bdc" +
-                  "&filter=a_remettre_a_euskal_moneta" +
+                  "&filter=a_remettre_a_l_assocation" +
                   "&direction=CREDIT",
                   'get', computeHistoryTableData)
     },
@@ -363,7 +363,7 @@ var BankDepositPage = React.createClass({
                         htmlFor="bank-deposit-deposit_amount">
                         {__("Nombre de chèques") + ": "}
                     </label>
-                    <div className="col-sm-8 bank-deposit deposit-amount-div" data-eusko="bank-deposit-deposit_bank">
+                    <div className="col-sm-8 bank-deposit deposit-amount-div" data-mlc="bank-deposit-deposit_bank">
                         <span className="deposit-amount-span">
                             {this.state.currentNumberCheques}
                         </span>
@@ -476,7 +476,7 @@ var BankDepositPage = React.createClass({
                                     {__("Paiement")}
                                     <span className="required-symbol">&nbsp;*</span>
                                 </label>
-                                <div className="col-sm-8 bank-deposit" data-eusko="bank-deposit-payment_mode">
+                                <div className="col-sm-8 bank-deposit" data-mlc="bank-deposit-payment_mode">
                                     <SimpleSelect
                                         ref="select"
                                         value={this.state.paymentMode}
@@ -500,7 +500,7 @@ var BankDepositPage = React.createClass({
                                     {__("Banque")}
                                     <span className="required-symbol">&nbsp;*</span>
                                 </label>
-                                <div className="col-sm-8 bank-deposit" data-eusko="bank-deposit-deposit_bank">
+                                <div className="col-sm-8 bank-deposit" data-mlc="bank-deposit-deposit_bank">
                                     <SimpleSelect
                                         ref="select"
                                         value={this.state.depositBank}
@@ -518,7 +518,7 @@ var BankDepositPage = React.createClass({
                             </div>
                             <Input
                                 name="depositAmount"
-                                data-eusko="bank-deposit-depositAmount"
+                                data-mlc="bank-deposit-depositAmount"
                                 value={this.state.depositAmount ? this.state.depositAmount : ""}
                                 label={__("Montant")}
                                 type="number"
@@ -541,7 +541,7 @@ var BankDepositPage = React.createClass({
                                     htmlFor="bank-deposit-deposit_amount">
                                     {__("Montant calculé")}
                                 </label>
-                                <div className="col-sm-8 bank-deposit deposit-amount-div" data-eusko="bank-deposit-deposit_bank">
+                                <div className="col-sm-8 bank-deposit deposit-amount-div" data-mlc="bank-deposit-deposit_bank">
                                     <span className="deposit-amount-span">
                                         {this.state.depositCalculatedAmount + " €"}
                                     </span>
@@ -550,7 +550,7 @@ var BankDepositPage = React.createClass({
                             {warningCustomAmountDifference}
                             <Input
                                 name="bordereau"
-                                data-eusko="bank-deposit-bordereau"
+                                data-mlc="bank-deposit-bordereau"
                                 value=""
                                 label={__("Bordereau")}
                                 type="text"
@@ -566,7 +566,7 @@ var BankDepositPage = React.createClass({
                             />
                             <Checkbox
                                 name="disableBordereau"
-                                data-eusko="bank-deposit-noBordereau"
+                                data-mlc="bank-deposit-noBordereau"
                                 value=""
                                 label={__("Je ne connais pas le n° du bordereau")}
                                 onChange={this.onFormChange}
@@ -577,7 +577,7 @@ var BankDepositPage = React.createClass({
                             <Row layout="horizontal">
                                 <input
                                     name="submit"
-                                    data-eusko="bank-deposit-submit"
+                                    data-mlc="bank-deposit-submit"
                                     type="submit"
                                     defaultValue={__("Enregistrer")}
                                     className="btn btn-success"

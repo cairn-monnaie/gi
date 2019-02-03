@@ -75,15 +75,15 @@ var GenericPage = React.createClass({
 
         # Reconversions
 
-        - Total des reconversions d'eusko billets
-        - Total des reconversions d'eusko numériques
+        - Total des reconversions d'mlc billets
+        - Total des reconversions d'mlc numériques
 
         # Dépôt en banque: Virements
 
         - Total des Cotisations
         - Total des Ventes
-        - Total des changes d'eusko Billets
-        - Total des changes d'eusko Numerique
+        - Total des changes d'mlc Billets
+        - Total des changes d'mlc Numerique
     */
     computeAmounts() {
         if (this.props.mode == 'operations/depots-retraits') {
@@ -121,7 +121,7 @@ var GenericPage = React.createClass({
         }
         else if (this.props.mode == 'operations/reconversions') {
             var montantTotalReconversionsBillets = _.chain(this.state.historyTableSelectedRows)
-               .filter((item) => { return item.type.internalName.toLowerCase() === "compte_des_billets_en_circulation.reconversion_billets_versement_des_eusko" })
+               .filter((item) => { return item.type.internalName.toLowerCase() === "compte_des_billets_en_circulation.reconversion_billets_versement_des_mlc" })
                .reduce((memo, row) => { return memo + Math.abs(row.amount) }, Number(0))
                .value()
                
@@ -313,7 +313,7 @@ var GenericPage = React.createClass({
             if (data.error) {
                 if (data.error == 'error-system-not-enough-money-billet') {
                     this.refs.container.error(
-                        __("Le compte dédié eusko billet n'a pas un solde suffisant pour réaliser cette opération."),
+                        __("Le compte dédié mlc billet n'a pas un solde suffisant pour réaliser cette opération."),
                         "",
                         {
                             timeOut: 15000,
@@ -324,7 +324,7 @@ var GenericPage = React.createClass({
                 }
                 else if (data.error == 'error-system-not-enough-money-numerique') {
                     this.refs.container.error(
-                        __("Le compte dédié eusko numérique n'a pas un solde suffisant pour réaliser cette opération."),
+                        __("Le compte dédié mlc numérique n'a pas un solde suffisant pour réaliser cette opération."),
                         "",
                         {
                             timeOut: 15000,
@@ -414,7 +414,7 @@ var GenericPage = React.createClass({
                 <div className="margin-top col-md-offset-1 col-md-1">
                     <input
                         name="submit"
-                        data-eusko="entree-stock-submit"
+                        data-mlc="entree-stock-submit"
                         type="submit"
                         defaultValue={__("Générer le fichier SEPA")}
                         className="btn btn-default"
@@ -498,7 +498,7 @@ var GenericPage = React.createClass({
             var montantBilletDiv = (
                 <div className="row">
                     <div className="col-md-8">
-                        <label className="control-label col-md-4">{__("Virement vers le Compte dédié eusko billet") + " : "}</label>
+                        <label className="control-label col-md-4">{__("Virement vers le Compte dédié mlc billet") + " : "}</label>
                         <span className="col-md-8">{this.state.montantTotalBillet + " €"}</span>
                     </div>
                 </div>
@@ -506,7 +506,7 @@ var GenericPage = React.createClass({
             var montantNumeriqueDiv = (
                 <div className="row">
                     <div className="col-md-8">
-                        <label className="control-label col-md-4">{__("Virement vers le Compte dédié eusko numérique") + " : "}</label>
+                        <label className="control-label col-md-4">{__("Virement vers le Compte dédié mlc numérique") + " : "}</label>
                         <span className="col-md-8">{this.state.montantTotalNumerique + " €"}</span>
                     </div>
                 </div>
@@ -528,7 +528,7 @@ var GenericPage = React.createClass({
             var montantTotalReconversionsBilletsDiv = (
                 <div className="row">
                     <div className="col-md-6 margin-top">
-                        <label className="control-label col-md-6">{__("Total des reconversions d'eusko billets") + " : "}</label>
+                        <label className="control-label col-md-6">{__("Total des reconversions d'mlc billets") + " : "}</label>
                         <span className="col-md-6">
                             {this.state.montantTotalReconversionsBillets + " " + this.props.currency}
                         </span>
@@ -539,7 +539,7 @@ var GenericPage = React.createClass({
             var montantTotalReconversionsNumeriquesDiv = (
                 <div className="row">
                     <div className="col-md-6">
-                        <label className="control-label col-md-6">{__("Total des reconversions d'eusko numériques") + " : "}</label>
+                        <label className="control-label col-md-6">{__("Total des reconversions d'mlc numériques") + " : "}</label>
                         <span className="col-md-6">
                             {this.state.montantTotalReconversionsNumeriques + " " + this.props.currency}
                         </span>
@@ -573,7 +573,7 @@ var GenericPage = React.createClass({
                     <div className="margin-top col-md-1 col-md-offset-1">
                         <input
                             name="submit"
-                            data-eusko="entree-stock-submit"
+                            data-mlc="entree-stock-submit"
                             type="submit"
                             defaultValue={messageButton}
                             className="btn btn-success"
@@ -635,14 +635,14 @@ else if (window.location.pathname.toLowerCase().indexOf("operations/entrees-euro
     var propTranslateTitle = __("Entrées dans la Caisse €")
     var propCurrency = '€'
 }
-else if (window.location.pathname.toLowerCase().indexOf("operations/entrees-eusko") != -1)
+else if (window.location.pathname.toLowerCase().indexOf("operations/entrees-mlc") != -1)
 {
-    // URL = operations/entrees-eusko
-    var propMode = "operations/entrees-eusko"
-    var propGetHistoryURL = getAPIBaseURL + "payments-available-entrees-eusko/"
+    // URL = operations/entrees-mlc
+    var propMode = "operations/entrees-mlc"
+    var propGetHistoryURL = getAPIBaseURL + "payments-available-entrees-mlc/"
     var propNextURL =  "/operations"
-    var propSaveURL =  getAPIBaseURL + "validate-entrees-eusko/"
-    var propTranslateTitle = __("Entrées dans la Caisse Eusko")
+    var propSaveURL =  getAPIBaseURL + "validate-entrees-mlc/"
+    var propTranslateTitle = __("Entrées dans la Caisse Mlc")
     var propCurrency = 'EUS'
 }
 else if (window.location.pathname.toLowerCase().indexOf("banques/rapprochement") != -1)

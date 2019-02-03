@@ -82,7 +82,7 @@ var ManagerHistoryPage = React.createClass({
                 var currentSolde = data[this.props.accountName]
             }
             else if (this.props.mode == 'compte_dedie') {
-                var currentSolde = data[this.props.mode + '_eusko_' + this.props.accountName]
+                var currentSolde = data[this.props.mode + '_mlc_' + this.props.accountName]
             }
             else {
                 var currentSolde = _.filter(data, (item) => { return item.type.id == this.props.mode })[0]
@@ -101,7 +101,7 @@ var ManagerHistoryPage = React.createClass({
                         }
                         else if (this.props.mode == 'compte_dedie') {
                             var urlHistory = (getAPIBaseURL + "accounts-history/?cyclos_mode=gi&account_type=" +
-                                              this.props.mode + '_eusko_' + this.props.accountName)
+                                              this.props.mode + '_mlc_' + this.props.accountName)
                         }
                         else {
                             var urlHistory = getAPIBaseURL + "accounts-history/?cyclos_mode=gi&account_type=" + this.props.mode
@@ -179,11 +179,11 @@ var ManagerHistoryPage = React.createClass({
                 </div>
             )
         }
-        else if (this.props.mode == 'caisse_eusko_bdc') {
+        else if (this.props.mode == 'caisse_mlc_bdc') {
             var actionButtons = (
                 <div className="row margin-bottom">
                     <div className="col-md-offset-2 col-md-2 col-sm-4">
-                        <a href={"/bdc/manage/" + this.props.loginBDC + "/sortie-caisse-eusko"} className="btn btn-info">{__("Sortie")}</a>
+                        <a href={"/bdc/manage/" + this.props.loginBDC + "/sortie-caisse-mlc"} className="btn btn-info">{__("Sortie")}</a>
                     </div>
                     <div className="col-md-offset-1 col-md-2 col-sm-4">
                         <label className="control-label col-md-12 solde-history-label">
@@ -194,11 +194,11 @@ var ManagerHistoryPage = React.createClass({
                 </div>
             )
         }
-        else if (this.props.mode == 'retours_d_eusko_bdc') {
+        else if (this.props.mode == 'retours_d_mlc_bdc') {
             var actionButtons = (
                 <div className="row margin-bottom">
                     <div className="col-md-offset-2 col-md-2 col-sm-4">
-                        <a href={"/bdc/manage/" + this.props.loginBDC + "/sortie-retour-eusko"} className="btn btn-info">{__("Sortie")}</a>
+                        <a href={"/bdc/manage/" + this.props.loginBDC + "/sortie-retour-mlc"} className="btn btn-info">{__("Sortie")}</a>
                     </div>
                     <div className="col-md-offset-1 col-md-2 col-sm-4">
                         <label className="control-label col-md-12 solde-history-label">
@@ -311,15 +311,15 @@ else if (window.location.pathname.toLowerCase().indexOf("caisse-euro") != -1)
     var pageTitle = __("Historique caisse Euro")
     var mode = 'caisse_euro_bdc'
 }
-else if (window.location.pathname.toLowerCase().indexOf("caisse-eusko") != -1)
+else if (window.location.pathname.toLowerCase().indexOf("caisse-mlc") != -1)
 {
-    var pageTitle = __("Historique caisse Eusko")
-    var mode = 'caisse_eusko_bdc'
+    var pageTitle = __("Historique caisse Mlc")
+    var mode = 'caisse_mlc_bdc'
 }
-else if (window.location.pathname.toLowerCase().indexOf("retour-eusko") != -1)
+else if (window.location.pathname.toLowerCase().indexOf("retour-mlc") != -1)
 {
-    var pageTitle = __("Historique retour Eusko")
-    var mode = 'retours_d_eusko_bdc'
+    var pageTitle = __("Historique retour Mlc")
+    var mode = 'retours_d_mlc_bdc'
 }
 else if (window.location.pathname.toLowerCase().indexOf("coffre/history") != -1)
 {

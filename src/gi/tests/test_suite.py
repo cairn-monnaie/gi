@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 log = logging.getLogger()
 
-SELENIUM_URL = 'http://eusko_selenium:4444/wd/hub'
+SELENIUM_URL = 'http://mlc_selenium:4444/wd/hub'
 BASE_URL = 'http://gi:8000'
 
 
@@ -79,7 +79,7 @@ class TestSuite:
             raise SeleniumTestException('Could not locate element "id=toast-container" '
                                         '(toast parent div for bdc create page)!')
 
-        # assert div with class="toast-succes" is present : member change_euro_eusko is OK!
+        # assert div with class="toast-succes" is present : member change_euro_mlc is OK!
         try:
             driver.long_wait.until(ec.presence_of_element_located((By.CLASS_NAME, 'toast-success')))
         except:

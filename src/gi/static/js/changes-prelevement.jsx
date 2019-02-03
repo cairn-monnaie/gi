@@ -171,7 +171,7 @@ class ChangesPrelevementsPage extends React.Component {
     render = () => {
         var creditAccountButton = <input
                                     name="credit-account"
-                                    data-eusko="changes-prelevement-credit-all"
+                                    data-mlc="changes-prelevement-credit-all"
                                     type="submit"
                                     defaultValue={__("Créditer tout")}
                                     className={this.state.processPendingOps ?
@@ -330,14 +330,14 @@ class ChangesPrelevementsPage extends React.Component {
                                         type="file"
                                         name="csv"
                                         onChange={this.selectCSV}
-                                        data-eusko="changes-prelevement-csv"
+                                        data-mlc="changes-prelevement-csv"
                                         accept=".csv"
                                     />
                                 </div>
                                 <div className="col-md-1">
                                     <input
                                      name="import-csv"
-                                     data-eusko="changes-prelevement-import-csv"
+                                     data-mlc="changes-prelevement-import-csv"
                                      type="submit"
                                      defaultValue={__("Importer le fichier")}
                                      className="btn btn-info"

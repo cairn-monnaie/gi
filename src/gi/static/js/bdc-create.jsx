@@ -1,7 +1,7 @@
 import {
     fetchAuth,
     getAPIBaseURL,
-    isBdcIdEusko,
+    isBdcIdMlc,
     NavbarTitle,
 } from 'Utils'
 
@@ -17,7 +17,7 @@ const {
 } = ReactToastr
 const ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation)
 
-Formsy.addValidationRule('isBdcIdEusko', isBdcIdEusko)
+Formsy.addValidationRule('isBdcIdMlc', isBdcIdMlc)
 
 const BdcCreateForm = React.createClass({
 
@@ -104,21 +104,21 @@ class BdcCreatePage extends React.Component {
                     <fieldset>
                          <Input
                             name="login"
-                            data-eusko="bdc-add-login"
+                            data-mlc="bdc-add-login"
                             value=""
                             label={__("Code")}
                             type="text"
                             placeholder={__("Code du nouveau bureau de change")}
-                             validations="isBdcIdEusko"
+                             validations="isBdcIdMlc"
                              validationErrors={{
-                                 isBdcIdEusko: __("Ceci n'est pas un identifiant BDC Eusko valide.")
+                                 isBdcIdMlc: __("Ceci n'est pas un identifiant BDC Mlc valide.")
                              }}
                             elementWrapperClassName={[{'col-sm-9': false}, 'col-sm-5']}
                             required
                         />
                          <Input
                             name="name"
-                            data-eusko="bdc-add-name"
+                            data-mlc="bdc-add-name"
                             value=""
                             label={__("Nom")}
                             type="text"
@@ -135,7 +135,7 @@ class BdcCreatePage extends React.Component {
                         <Row layout="horizontal">
                             <input
                                 name="submit"
-                                data-eusko="bdc-add-submit"
+                                data-mlc="bdc-add-submit"
                                 type="submit"
                                 defaultValue={__("Enregistrer")}
                                 className="btn btn-success"

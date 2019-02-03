@@ -110,7 +110,7 @@ class Dons3PourcentPage extends React.Component {
                 <Formsy.Form onValidSubmit={this.submitForm}>
                     <div className="col-md-10">
                         <label className="control-label">{__("Période :")}</label>
-                        <div data-eusko="dons-3-pourcent-start-date">
+                        <div data-mlc="dons-3-pourcent-start-date">
                             <DatePicker
                                 className="form-control"
                                 selected={this.state.startDate}
@@ -118,7 +118,7 @@ class Dons3PourcentPage extends React.Component {
                                 locale="fr"
                             />
                         </div>
-                        <div data-eusko="dons-3-pourcent-end-date">
+                        <div data-mlc="dons-3-pourcent-end-date">
                             <DatePicker
                                 className="form-control"
                                 selected={this.state.endDate}
@@ -130,7 +130,7 @@ class Dons3PourcentPage extends React.Component {
                     <div className="col-md-10">
                                 <input
                                     name="submit"
-                                    data-eusko="dons-3-pourcent-submit"
+                                    data-mlc="dons-3-pourcent-submit"
                                     type="submit"
                                     defaultValue={__("Valider")}
                                     className="btn btn-success"
@@ -142,7 +142,7 @@ class Dons3PourcentPage extends React.Component {
                 <div className="col-md-10">
                     <div className="row">
                         <div className="col-sm-3 col-sm-offset-1">
-                            <label>{__("Montant total du change d'euros en eusko :") + " "}
+                            <label>{__("Montant total du change d'euros en mlc :") + " "}
                                 <span>{this.state.totalChanges}</span>
                             </label>
                         </div>

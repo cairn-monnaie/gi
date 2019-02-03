@@ -19,10 +19,10 @@ var ComptesDedies = React.createClass({
     componentWillReceiveProps(nextProps) {
         if (nextProps) {
             this.setState({active: nextProps.initActive,
-                           balanceBillet: nextProps.data.compte_dedie_eusko_billet.balance,
-                           currencyBillet: nextProps.data.compte_dedie_eusko_billet.currency,
-                           balanceNumerique: nextProps.data.compte_dedie_eusko_numerique.balance,
-                           currencyNumerique: nextProps.data.compte_dedie_eusko_numerique.currency})
+                           balanceBillet: nextProps.data.compte_dedie_mlc_billet.balance,
+                           currencyBillet: nextProps.data.compte_dedie_mlc_billet.currency,
+                           balanceNumerique: nextProps.data.compte_dedie_mlc_numerique.balance,
+                           currencyNumerique: nextProps.data.compte_dedie_mlc_numerique.currency})
         }
     },
 

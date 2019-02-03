@@ -179,11 +179,11 @@ var getUrlParameter = (name) => {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-var isMemberIdEusko = (values, value) => {
+var isMemberIdMlc = (values, value) => {
     return value && value.match(/^[EZ]\d\d\d\d\d$/)
 }
 
-var isBdcIdEusko = (values, value) => {
+var isBdcIdMlc = (values, value) => {
     return value && value.match(/^B\d{4,}$/)
 }
 
@@ -397,8 +397,8 @@ module.exports = {
     fetchGetToken: fetchGetToken,
     fetchUpload: fetchUpload,
     getUrlParameter: getUrlParameter,
-    isMemberIdEusko: isMemberIdEusko,
-    isBdcIdEusko: isBdcIdEusko,
+    isMemberIdMlc: isMemberIdMlc,
+    isBdcIdMlc: isBdcIdMlc,
     isPositiveNumeric: isPositiveNumeric,
     titleCase: titleCase,
     getCurrentLang: getCurrentLang,

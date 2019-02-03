@@ -102,7 +102,7 @@ class ChangeVirementPage extends React.Component {
                     onValidSubmit={this.submitForm}>
                     <Input
                         name="memberId"
-                        data-eusko="change-virement-member-id"
+                        data-mlc="change-virement-member-id"
                         value={this.state.memberId}
                         label={__("Numéro d'adhérent-e")}
                         type="text"
@@ -118,7 +118,7 @@ class ChangeVirementPage extends React.Component {
                     />
                     <Input
                         name="bankTransferReference"
-                        data-eusko="change-virement-bank-transfer-reference"
+                        data-mlc="change-virement-bank-transfer-reference"
                         value={this.state.bankTransferReference}
                         label={__("Référence du virement")}
                         type="text"
@@ -129,7 +129,7 @@ class ChangeVirementPage extends React.Component {
                     />
                     <Input
                         name="amount"
-                        data-eusko="change-virement-amount"
+                        data-mlc="change-virement-amount"
                         value={this.state.amount}
                         label={__("Montant")}
                         type="number"
@@ -145,7 +145,7 @@ class ChangeVirementPage extends React.Component {
                     <Row layout="horizontal">
                         <input
                             name="submit"
-                            data-eusko="change-virement-submit"
+                            data-mlc="change-virement-submit"
                             type="submit"
                             defaultValue={__("Valider")}
                             className="btn btn-success"

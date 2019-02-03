@@ -66,7 +66,7 @@ class SortieCoffrePage extends React.Component {
         var computePorteurListData = (porteurList) => {
             this.setState({porteurList: _.sortBy(porteurList, function(item){ return item.label })})
         }
-        fetchAuth(getAPIBaseURL + "porteurs-eusko/", 'get', computePorteurListData)
+        fetchAuth(getAPIBaseURL + "porteurs-mlc/", 'get', computePorteurListData)
 
         // Get current bdc name
         var computeData = (data) => {
@@ -202,7 +202,7 @@ class SortieCoffrePage extends React.Component {
                     <fieldset>
                         <Input
                             name="amount"
-                            data-eusko="sortiecoffre-amount"
+                            data-mlc="sortiecoffre-amount"
                             value={this.state.amount ? this.state.amount : ""}
                             label={__("Montant")}
                             type="number"
@@ -223,7 +223,7 @@ class SortieCoffrePage extends React.Component {
                                 {__("Destinataire")}
                                 <span className="required-symbol">&nbsp;*</span>
                             </label>
-                            <div className="col-sm-6 sortiecoffre" data-eusko="sortiecoffre-bdcDest">
+                            <div className="col-sm-6 sortiecoffre" data-mlc="sortiecoffre-bdcDest">
                                 <SimpleSelect
                                     className={reactSelectizeErrorClass}
                                     ref="select"
@@ -249,7 +249,7 @@ class SortieCoffrePage extends React.Component {
                                 {__("Porteur")}
                                 <span className="required-symbol">&nbsp;*</span>
                             </label>
-                            <div className="col-sm-6 sortiecoffre" data-eusko="sortiecoffre-porteur">
+                            <div className="col-sm-6 sortiecoffre" data-mlc="sortiecoffre-porteur">
                                 <SimpleSelect
                                     className={reactSelectizeErrorClass}
                                     ref="select"
@@ -270,7 +270,7 @@ class SortieCoffrePage extends React.Component {
                         <Textarea
                             name="description"
                             value={this.state.description ? this.state.description : ""}
-                            data-eusko="sortiecoffre-description"
+                            data-mlc="sortiecoffre-description"
                             rows={3}
                             elementWrapperClassName={[{'col-sm-9': false}, 'col-sm-6']}
                             label={__("Description")}
@@ -287,7 +287,7 @@ class SortieCoffrePage extends React.Component {
                         <Row layout="horizontal">
                             <input
                                 name="submit"
-                                data-eusko="sortiecoffre-submit"
+                                data-mlc="sortiecoffre-submit"
                                 type="submit"
                                 defaultValue={propTranslateButton}
                                 className="btn btn-success"
