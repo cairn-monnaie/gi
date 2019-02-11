@@ -1,4 +1,9 @@
-version: '2'
+version: '3'
+
+networks:
+  mlc_net:
+    external:
+      name: mlc_net
 
 services:
   gi:
@@ -15,9 +20,4 @@ services:
       - DJANGO_DEBUG=True
       - TEST=False
     networks:
-      - eusko_net
-
-networks:
-  eusko_net:
-    external:
-      name: api_eusko_net
+      - mlc_net
