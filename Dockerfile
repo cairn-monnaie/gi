@@ -14,7 +14,22 @@ RUN apt-get update && apt-get install -y \
     mysql-client default-libmysqlclient-dev \
     postgresql-client libpq-dev \
     sqlite3 \
+    libgtk-3-0 libdbus-glib-1-2 \
   --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
+# installing firefox && geckodriver for selenium testing. See releases here : https://github.com/mozilla/geckodriver/releases
+# make sure firefox version, matches geckodriver version 
+RUN cd /usr/local \
+    && wget http://ftp.mozilla.org/pub/firefox/releases/65.0.1/linux-x86_64/fr/firefox-65.0.1.tar.bz2 \
+    && tar xvjf firefox-65.0.1.tar.bz2 \
+    && ln -s /usr/local/firefox/firefox /usr/bin/firefox \
+    && chmod +x /usr/local/firefox/firefox /usr/bin/firefox
+
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.22.0/geckodriver-v0.22.0-linux64.tar.gz \
+    && sh -c 'tar -x geckodriver -zf geckodriver-v0.22.0-linux64.tar.gz -O > /usr/local/bin/geckodriver' \ 
+    && chmod +x /usr/local/bin/geckodriver \
+    && rm geckodriver-v0.22.0-linux64.tar.gz
+
 
 # Installing node / npm in Debian (following official nodejs Dockerfile https://github.com/nodejs/docker-node):
 

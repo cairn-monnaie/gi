@@ -1,17 +1,22 @@
 import logging
 
 import pytest
+import unittest
 
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.firefox.options import Options
+from django.db import connections
 
 log = logging.getLogger()
 
-SELENIUM_URL = 'http://mlc_selenium:4444/wd/hub'
+SELENIUM_URL = 'http://eusko_selenium:4444/wd/hub'
 BASE_URL = 'http://gi:8000'
+CYCLOS_DB_URL = 'http://cyclos-db:5432'
 
 
 class SeleniumTestException(Exception):
@@ -30,9 +35,23 @@ def driver(request):
     driver.close()
 
 
-class TestSuite:
 
-    def test_001_login(self, driver):
+class TestSuite(LiveServerTestCase):
+
+    @classmethod
+    def setUpClass(self):
+        options = Options()
+        options.set_headless(headless=True)
+        self.webdriver = webdriver.Firefox(firefox_options=options)
+        super(TestSuite, self).setUpClass()
+
+    @classmethod
+    def tearDownClass(self):
+        self.webdriver.close()
+        super(TestSuite, self).tearDownClass()
+
+    def test_001_login(self):
+        driver = self.webdriver
         driver.get('{}/login'.format(BASE_URL))
 
         driver.find_element_by_id('username').send_keys('demo')
