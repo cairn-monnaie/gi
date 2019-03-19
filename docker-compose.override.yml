@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  gi:
+    volumes:
+      - ./src/gi:/usr/src/app
+      - /usr/src/app/node_modules

@@ -9,9 +9,6 @@ services:
   gi:
     build: .
     container_name: gi
-    volumes:
-      - ./src/gi:/usr/src/app
-      - /usr/src/app/node_modules
     ports:
       - 8002:8000
     environment:

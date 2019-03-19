@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  gi:
+    environment:
+      - DJANGO_DEBUG=False
+      - TEST=False
