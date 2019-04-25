@@ -108,7 +108,7 @@ class BdcCreatePage extends React.Component {
                             value=""
                             label={__("Code")}
                             type="text"
-                            placeholder={__("Code du nouveau bureau de change")}
+                            placeholder={__("Nom du nouveau bureau de change")}
                              validations="isBdcIdMlc"
                              validationErrors={{
                                  isBdcIdMlc: __("Ceci n'est pas un identifiant BDC Mlc valide.")
@@ -123,6 +123,20 @@ class BdcCreatePage extends React.Component {
                             label={__("Nom")}
                             type="text"
                             placeholder={__("Nom du nouveau bureau de change")}
+                            validations="isExisty"
+                            validationErrors={{
+                                isExisty: __("Ce champ ne peut être vide."),
+                            }}
+                            elementWrapperClassName={[{'col-sm-9': false}, 'col-sm-5']}
+                            required
+                        />
+                         <Input
+                            name="password"
+                            data-mlc="bdc-add-password"
+                            value=""
+                            label={__("Mot de passe (8 à 25 caractères + 1 caractère spécial)")}
+                            type="password"
+                            placeholder={__("Mot de passe du nouveau bureau de change")}
                             validations="isExisty"
                             validationErrors={{
                                 isExisty: __("Ce champ ne peut être vide."),
